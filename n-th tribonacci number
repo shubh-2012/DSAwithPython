@@ -1,0 +1,10 @@
+class Solution:
+    def tribonacci(self, n: int) -> int:
+        list1 = [-1]*39
+        list1[0] = 0
+        list1[1] = 1
+        list1[2] = 1
+        for i in range(3,39):
+            list1[i] = list1[i-2] + list1[i-1] + list1[i-3]
+            
+        return list1[n]
