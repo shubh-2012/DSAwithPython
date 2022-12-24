@@ -33,13 +33,38 @@ def parse_tuple(data):  #function to convert tuple to tree.
         node = Node(data)
     return node
 
-# node1 = parse_tuple(tree_tuple)
+node1 = parse_tuple(tree_tuple)
 #
 # print(node1.val)
 # print(node1.left.val)
 # print(node1.right.val)
 
 #try converting tree to tuple.
+
+def inorder_traversal(node):
+    if node is None:
+        return []
+    return (inorder_traversal(node.left) + [node.val]
+            + inorder_traversal(node.right))
+
+def postorder_traversal(node):
+    if node is None:
+        return []
+    return (postorder_traversal(node.left) +  postorder_traversal(node.right)+[node.val])
+
+def preorder_traversal(node):
+    if node is None:
+        return []
+    return ([node.val]
+            + preorder_traversal(node.left) +  preorder_traversal(node.right))
+result = inorder_traversal(node1)
+result1 = preorder_traversal(node1)
+result2 = postorder_traversal(node1)
+
+print(result)
+print(result1)
+print(result2)
+
 
 
 
