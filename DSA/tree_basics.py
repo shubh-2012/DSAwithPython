@@ -50,13 +50,18 @@ def inorder_traversal(node):
 def postorder_traversal(node):
     if node is None:
         return []
-    return (postorder_traversal(node.left) +  postorder_traversal(node.right)+[node.val])
+    return (postorder_traversal(node.left) +  postorder_traversal(node.right) + [node.val])
 
 def preorder_traversal(node):
     if node is None:
         return []
     return ([node.val]
-            + preorder_traversal(node.left) +  preorder_traversal(node.right))
+            + preorder_traversal(node.left) + preorder_traversal(node.right))
+def treeHeight(node):
+    if node is None:
+        return 0
+    return 1 + max(treeHeight(node.left),treeHeight(node.right))
+
 result = inorder_traversal(node1)
 result1 = preorder_traversal(node1)
 result2 = postorder_traversal(node1)
@@ -64,6 +69,8 @@ result2 = postorder_traversal(node1)
 print(result)
 print(result1)
 print(result2)
+
+print(treeHeight(node1))
 
 
 

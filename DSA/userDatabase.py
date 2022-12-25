@@ -54,16 +54,34 @@ kabir = User('singh','kabir','singh@zyz.com')
 # print(akash)
 # print(users)
 
-database = UserDatabase()
+# database = UserDatabase()
+#
+# database.insert(akash)
+# database.insert(viraj)
+# database.insert(vinay)
+#
+# database.find('aks')
+# database.update(User(username='aks',name='zxc',email='mnb@gmail.com'))
+# database.find('aks')
+#
+# database.listAll()
 
-database.insert(akash)
-database.insert(viraj)
-database.insert(vinay)
+#storing key value pair in BST
 
-database.find('aks')
-database.update(User(username='aks',name='zxc',email='mnb@gmail.com'))
-database.find('aks')
+class BSTnode:
+    def __init__(self,key,value=None):
+        self.key = key
+        self.value = value
+        self.left = None
+        self.right = None
+        self.parent = None
 
-database.listAll()
+tree = BSTnode(akash.username,akash)
+
+tree.left = BSTnode(viraj.username,viraj)
+tree.left.parent = tree
+tree.right = BSTnode(vinay.username,vinay)
+tree.right.parent = tree
+# print(tree.value,tree.key)
 
 
