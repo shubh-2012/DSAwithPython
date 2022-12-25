@@ -110,6 +110,37 @@ def treeFind(node,key):
 # ans = treeFind(tree,'son')
 # print(ans.value)
 
+#inorder traversal of BST produces sorted list.
+
+def listAll(node):
+    if node is None:
+        return []
+    return (listAll(node.left) + [node.key,node.value] + listAll(node.right))
+
+# result = listAll(tree)
+# print(result)
+
+#function to find if a tree is balanced or not.
+
+def isBSTbalanced(node):
+
+    if node is None:
+        return True,0
+
+    balanced_l,height_l = isBSTbalanced(node.left)
+    balanced_r,height_r = isBSTbalanced(node.right)
+
+    balanced = balanced_r and balanced_l and abs(height_l - height_r) <= 1
+    height = 1 + max(height_l,height_r)
+    return balanced,height
+
+print(isBSTbalanced(tree))
+
+insert(tree,'tanya',User('tanya','tanya s','tan@xyz.com'))
+
+print(isBSTbalanced(tree))
+
+
 
 
 
